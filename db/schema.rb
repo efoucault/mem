@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_163410) do
+ActiveRecord::Schema.define(version: 2018_08_20_165749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "watch_id"
+    t.date "booking_start_date"
+    t.date "booking_end_date"
+    t.integer "booking_price"
+    t.string "status"
+    t.bigint "owner_id"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_bookings_on_customer_id"
+    t.index ["owner_id"], name: "index_bookings_on_owner_id"
+    t.index ["watch_id"], name: "index_bookings_on_watch_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -51,5 +66,8 @@ ActiveRecord::Schema.define(version: 2018_08_20_163410) do
     t.index ["user_id"], name: "index_watches_on_user_id"
   end
 
+  add_foreign_key "bookings", "users", column: "customer_id"
+  add_foreign_key "bookings", "users", column: "owner_id"
+  add_foreign_key "bookings", "watches"
   add_foreign_key "watches", "users"
 end
