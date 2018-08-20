@@ -1,4 +1,5 @@
 <% @users.each do |user| %>
   <%= "#{user.first_name} #{user.last_name}. #{user.email} Address: #{user.address}. " %>
   <%= "#{user.description}" %></br>
+  <%= cl_image_tag user.photo, height: 100, width: 100, crop: :fill, radius: :max %>
 <% end %>
