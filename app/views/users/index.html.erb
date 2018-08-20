@@ -1,5 +1,35 @@
-<% @users.each do |user| %>
-  <%= "#{user.first_name} #{user.last_name}. #{user.email} Address: #{user.address}. " %>
-  <%= "#{user.description}" %> | <%= link_to 'Edit', edit_user_path(user) %></br>
-  <%= cl_image_tag user.photo, height: 100, width: 100, crop: :fill, radius: :max %>
-<% end %>
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, radius: :max %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.address %></td>
+        <td><%= user.email %></td>
+        <td><%= user.description %></td>
+        <td><%= link_to 'Show', user %> | </td>
+        <td><%= link_to 'Edit', edit_user_path(user) %> | </td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
