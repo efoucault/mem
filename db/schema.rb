@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_174210) do
+ActiveRecord::Schema.define(version: 2018_08_20_174501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 2018_08_20_174210) do
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
     t.index ["owner_id"], name: "index_bookings_on_owner_id"
     t.index ["watch_id"], name: "index_bookings_on_watch_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "message"
+    t.bigint "booking_id"
+    t.bigint "owner_id"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_messages_on_booking_id"
+    t.index ["customer_id"], name: "index_messages_on_customer_id"
+    t.index ["owner_id"], name: "index_messages_on_owner_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -82,6 +94,9 @@ ActiveRecord::Schema.define(version: 2018_08_20_174210) do
   add_foreign_key "bookings", "users", column: "customer_id"
   add_foreign_key "bookings", "users", column: "owner_id"
   add_foreign_key "bookings", "watches"
+  add_foreign_key "messages", "bookings"
+  add_foreign_key "messages", "users", column: "customer_id"
+  add_foreign_key "messages", "users", column: "owner_id"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users", column: "customer_id"
   add_foreign_key "reviews", "users", column: "owner_id"
