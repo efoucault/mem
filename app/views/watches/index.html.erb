@@ -2,7 +2,6 @@
   <div class="banner-content">
     <h1>Votre temps est précieux</h1>
     <p>Location de montres de luxe de particulier à particulier</p>
-    <a class="btn btn-primary btn-lg">Réserver une montre</a>
   </div>
 </div>
 
@@ -21,9 +20,10 @@
             </div>
             <div class="watch-card-actions">
               <span><%= watch.price_per_day %> € par jour</span>
-              <span><%= link_to "Plus d'info", watch_path(watch) %></span>
               <span><img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"></span>
+
             </div>
+            <%= link_to "", watch_path(watch), class: 'card-link' %>
           </div>
         </div>
       <% end %>
