@@ -8,4 +8,8 @@ class WatchesController < ApplicationController
     @watch = Watch.find(params[:id])
   end
 
+  def new
+    @watch = Watch.new
+  end
+
 end
