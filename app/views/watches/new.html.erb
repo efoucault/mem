@@ -1,0 +1,23 @@
+<div class="banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://s3images.coroflot.com/user_files/individual_files/original_318028_dehirjKKhTifQEktB1XMK_ZXC.jpgg');">
+        <%= link_to "Retour", watches_path, class: "btn-return" %>
+  </div>
+
+
+<div class="container">
+  <h2>Proposer votre montre à la location</h2>
+  <div class="">
+    <%= simple_form_for @watch do |f| %>
+      <%= f.input :brand, collection: @collection_brand %>
+      <%= f.input :model %>
+      <%= f.input :description %>
+      <%= f.input :gender, collection: @collection_gender %>
+      <%= f.input :style, collection: @collection_style %>
+      <%= f.input :color, collection: @collection_color %>
+      <%= f.input :case_material, collection: @collection_case_material %>
+      <%= f.input :mechanism, collection: @collection_mechanism %>
+      <%= f.input :production_year %>
+      <%= f.input :price_per_day %>
+  </div>
+    <%= f.submit %>
+  <% end %>
+</div>
