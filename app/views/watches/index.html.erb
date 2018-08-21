@@ -5,28 +5,30 @@
   </div>
 </div>
 
-
-<div class="container">
-  <div class="row">
-      <% @watches.each do |watch| %>
-              <div class="col-xs-12 col-sm-4">
-          <div class="watch-card">
-            <div class="watch-card-image" style="background-image: url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b0dad6307f4db24e9d52d0140adab06&auto=format&fit=crop&w=668&q=80')"></div>
-            <div class="watch-card-content">
-              <div class="watch-card-title">
-                <h4><strong><%= watch.brand %></strong></h4>
-                <p><%= watch.model %></p>
+<div class="content">
+  <div class="container">
+    <div class="row">
+        <% @watches.each do |watch| %>
+                <div class="col-xs-12 col-sm-4">
+            <div class="watch-card">
+              <div class="watch-card-image" style="background-image: url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b0dad6307f4db24e9d52d0140adab06&auto=format&fit=crop&w=668&q=80')"></div>
+              <div class="watch-card-content">
+                <div class="watch-card-title">
+                  <h4><strong><%= watch.brand %></strong></h4>
+                  <p><%= watch.model %></p>
+                </div>
               </div>
-            </div>
-            <div class="watch-card-actions">
-              <span><%= watch.price_per_day %> € par jour</span>
-              <span><img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"></span>
+              <div class="watch-card-actions">
+                <span><%= watch.price_per_day %> € par jour</span>
+                <span><img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"></span>
 
+              </div>
+              <%= link_to "", watch_path(watch), class: 'card-link' %>
             </div>
-            <%= link_to "", watch_path(watch), class: 'card-link' %>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+  </div>
+  <div id="map" data-markers="<%= @markers.to_json %>"></div>
 </div>
 
