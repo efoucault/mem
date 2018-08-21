@@ -1,0 +1,7 @@
+<h1>Booking <%= "#{@booking.id}" %></h1></br>
+
+<p><%= link_to "customer: #{@booking.customer.id} #{@booking.customer.first_name} #{@booking.customer.last_name}", user_path(@booking.customer) %></p>
+<p><%= link_to "owner: #{@booking.owner.id} #{@booking.owner.first_name} #{@booking.owner.last_name}", user_path(@booking.owner) %></p>
+<p>watch: <%= @booking.watch.model %></p>
+<p>start date: <%= @booking.booking_start_date %></p>
+<p>end date: <%= @booking.booking_end_date %></p>
