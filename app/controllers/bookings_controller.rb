@@ -10,7 +10,11 @@ class BookingsController < ApplicationController
     @booking.owner = @booking.watch.user
     @booking.customer = current_user
     @booking.save!
-    redirect_to watch_path(@booking.watch)
+    redirect_to booking_path(@booking)
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
   end
 end
 

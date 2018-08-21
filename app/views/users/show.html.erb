@@ -19,11 +19,11 @@
       <h1>Mes locations</h1>
       <% @user.bookings.each do |booking| %>
       <div class="col-xs-12 col-md-6 col-lg-4">
-        <div class="card">
+        <div class="watch-card">
           <div class="watch-card-image" style="background-image: url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b0dad6307f4db24e9d52d0140adab06&auto=format&fit=crop&w=668&q=80')"></div>
             <div class="watch-card-content">
               <div class="watch-card-title">
-                <h4><strong><%= "#{booking.owner.first_name} #{booking.owner.last_name}" %></strong></h4>
+                <h4><strong><%= link_to "#{booking.owner.first_name} #{booking.owner.last_name}", booking_path(booking) %></strong></h4>
                 <%= booking.booking_start_date %>
                 <%= booking.booking_end_date %>
                 <%= booking.watch.model %>
@@ -38,7 +38,7 @@
       <h1 id="title-user">Mes montres</h1>
       <% @user.watches.each do |watch| %>
         <div class="col-xs-12 col-md-6 col-lg-4">
-        <div class="card">
+        <div class="watch-card">
           <div class="watch-card-image" style="background-image: url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b0dad6307f4db24e9d52d0140adab06&auto=format&fit=crop&w=668&q=80')"></div>
             <div class="watch-card-content">
               <div class="watch-card-title">
@@ -50,6 +50,27 @@
             </div>
           </div>
         </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <h1>Mes montres réservées</h1>
+      <% @user.watches.each do |watch| %>
+        <% watch.bookings.each do |booking| %>
+          <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="watch-card">
+              <div class="watch-card-image" style="background-image: url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b0dad6307f4db24e9d52d0140adab06&auto=format&fit=crop&w=668&q=80')"></div>
+              <div class="watch-card-content">
+                <div class="watch-card-title">
+                  <h4><strong><%= link_to "#{booking.owner.first_name} #{booking.owner.last_name}", booking_path(booking) %></strong></h4>
+                  <%= booking.booking_start_date %>
+                  <%= booking.booking_end_date %>
+                  <%= booking.watch.model %>
+                  <%= booking.customer.first_name %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
