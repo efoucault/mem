@@ -15,6 +15,41 @@
   height: auto;
 }
 
-#title-user {
-  padding-top: 100px;
+
+.btn-primary {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  float: left;
+  background-color: #2A80CF;
+  border: 1px solid #2A80CF;
+  &:hover {
+   background-color: #2A80CF;
+   border: 1px solid #2A80CF;
+  }
+}
+
+.radius-loc {
+  border-radius: 3px 0px 0px 3px;
+}
+
+.radius-prop {
+  border-radius: 0px 3px 3px 0px;
+}
+
+.enabled {
+  background-color: #F4F4F4;
+  color: #2A80CF;
+  border: 1px solid #2A80CF;
+  color: #2A80CF;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  float: left;
+  &:hover {
+   color: #2A80CF;
+   font-weight: 800;
+  }
 }
