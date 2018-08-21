@@ -1,33 +1,56 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Photo:</strong>
-  <%= cl_image_tag @user.photo, height: 50, width: 50, crop: :fill, radius: :max %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Last Name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @user.description %>
-</p>
-
-<%= link_to 'Edit my Profil', edit_user_path(@user) %> |
+<div class="banner-user">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <%= cl_image_tag @user.photo, class: "avatar-big" %>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
+      <p><%= @user.description %></p>
+      <%= link_to edit_user_path(@user) do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <h1>Mes locations</h1>
+      <% @user.bookings.each do |booking| %>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="card">
+          <div class="watch-card-image" style="background-image: url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b0dad6307f4db24e9d52d0140adab06&auto=format&fit=crop&w=668&q=80')"></div>
+            <div class="watch-card-content">
+              <div class="watch-card-title">
+                <h4><strong><%= "#{booking.owner.first_name} #{booking.owner.last_name}" %></strong></h4>
+                <%= booking.booking_start_date %>
+                <%= booking.booking_end_date %>
+                <%= booking.watch.model %>
+                <%= booking.customer.first_name %>
+              </div>
+            </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <h1 id="title-user">Mes montres</h1>
+      <% @user.watches.each do |watch| %>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="card">
+          <div class="watch-card-image" style="background-image: url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b0dad6307f4db24e9d52d0140adab06&auto=format&fit=crop&w=668&q=80')"></div>
+            <div class="watch-card-content">
+              <div class="watch-card-title">
+                <h4><strong><%= "#{watch.model}" %></strong></h4>
+                <%= watch.brand %>
+                <%= watch.production_year %>
+                <%= watch.price_per_day %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
