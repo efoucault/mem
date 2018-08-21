@@ -15,7 +15,11 @@
 </div>
 <div class="wrapper">
   <div class="container">
-    <div class="row">
+    <div class="buttons">
+      <a href="#" class="radius-loc btn btn-primary btn-loc">vue Locataire</a>
+      <a href="#" class="radius-prop btn enabled btn-prop">vue Propriétaire</a>
+    </div>
+    <div class="row loc">
       <h1>Mes locations</h1>
       <% @user.bookings.each do |booking| %>
       <div class="col-xs-12 col-md-6 col-lg-4">
@@ -34,7 +38,7 @@
       </div>
       <% end %>
     </div>
-    <div class="row">
+    <div class="row prop" style="display:none">
       <h1 id="title-user">Mes montres</h1>
       <% @user.watches.each do |watch| %>
         <div class="col-xs-12 col-md-6 col-lg-4">
@@ -52,7 +56,7 @@
         </div>
       <% end %>
     </div>
-    <div class="row">
+    <div class="row prop" style="display:none">
       <h1>Mes montres réservées</h1>
       <% @user.watches.each do |watch| %>
         <% watch.bookings.each do |booking| %>
