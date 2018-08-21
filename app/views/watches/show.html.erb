@@ -3,16 +3,25 @@
 
 <div class="container">
   <div class="details">
-    <h1><%= @watch.brand %> - <%= @watch.model %></h1>
-    <h4>Détails :</h4>
-    <p><%= @watch.description %></p>
-    <ul>
-      <li>Genre : <%= @watch.gender %></li>
-      <li>Style : <%= @watch.style %></li>
-      <li>Couleur : <%= @watch.color %></li>
-      <li>Matière : <%= @watch.case_material %></li>
-      <li>Méchanisme : <%= @watch.mechanism %></li>
-      <li>Année de production : <%= @watch.production_year %></li>
-    </ul>
+    <div class="description-watch">
+      <%= link_to "< Retour", watches_path %>
+      <h1><%= @watch.brand %> - <%= @watch.model %></h1>
+      <h4>Détails :</h4>
+      <p><%= @watch.description %></p>
+      <ul>
+        <li>Genre : <%= @watch.gender %></li>
+        <li>Style : <%= @watch.style %></li>
+        <li>Couleur : <%= @watch.color %></li>
+        <li>Matière : <%= @watch.case_material %></li>
+        <li>Méchanisme : <%= @watch.mechanism %></li>
+        <li>Année de production : <%= @watch.production_year %></li>
+      </ul>
+    </div>
+    <div class="about-owner">
+      <h3><%=@watch.user.first_name%></h3>
+      <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"><span><%= @watch.user.description%></span>
+    </div>
+  </div>
+  <div class="form-booking">
   </div>
 </div>

@@ -6,19 +6,27 @@
   </div>
 </div>
 
+
 <div class="container">
   <div class="row">
-    <% @watches.each do |watch| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.ribrally.fr/wp-content/uploads/2018/05/Top-marque-montre-homme-luxe-mecanique-cuir-noir-3.jpg');">
-          <div class="card-description">
-            <h2><%= watch.brand %> - <%= watch.model %></h2>
-            <p><%= watch.price_per_day %> € par jour</p>
+      <% @watches.each do |watch| %>
+              <div class="col-xs-12 col-sm-4">
+          <div class="watch-card">
+            <div class="watch-card-image" style="background-image: url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b0dad6307f4db24e9d52d0140adab06&auto=format&fit=crop&w=668&q=80')"></div>
+            <div class="watch-card-content">
+              <div class="watch-card-title">
+                <h4><strong><%= watch.brand %></strong></h4>
+                <p><%= watch.model %></p>
+              </div>
+            </div>
+            <div class="watch-card-actions">
+              <span><%= watch.price_per_day %> € par jour</span>
+              <span><%= link_to "Plus d'info", watch_path(watch) %></span>
+              <span><img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"></span>
+            </div>
           </div>
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-          <%= link_to "Voir", watch_path(watch) %>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 </div>
+
