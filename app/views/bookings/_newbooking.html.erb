@@ -1,8 +1,5 @@
-<div class="container">
-  <h1>Create a new booking</h1>
   <%= simple_form_for [@watch, Booking.new] do |f| %>
-    <%= f.input :booking_start_date, as: :date, html5: true %>
-    <%= f.input :booking_end_date, as: :date, html5: true  %>
-    <%= f.submit "add a booking", class: "btn btn-success" %>
+    <%= f.input :booking_start_date, label: 'Date de début', as: :date, html5: true %>
+    <%= f.input :booking_end_date, label: 'Date de fin', as: :date, html5: true  %>
+    <%= f.submit "Demande de réservation", class: "btn btn-success btn-resa" %>
   <% end %>
-</div>
