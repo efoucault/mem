@@ -8,4 +8,5 @@ hideProprietaireStuff();
 import { hideLocataireStuff } from '../components/toggle';
 hideLocataireStuff();
 
-
+import { numberOfDays } from '../components/numberOfDays';
+numberOfDays();

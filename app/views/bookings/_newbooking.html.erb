@@ -1,7 +1,8 @@
   <%= simple_form_for [@watch, Booking.new] do |f| %>
-    <%= f.input :booking_start_date, label: 'Date de début', as: :date, html5: true %>
-    <%= f.input :booking_end_date, label: 'Date de fin', as: :date, html5: true  %>
+    <%= f.input :booking_start_date, label: 'Date de début', as: :date, html5: true, input_html: { :class => 'date-picker date-first' } %>
+    <%= f.input :booking_end_date, label: 'Date de fin', as: :date, html5: true, input_html: { class: 'date-picker date-end' } %>
+    <p class="test-of-days">Location pour </p>
+    <p class="price">Coût de la location : </p>
     <%= f.submit "Demande de réservation", class: "btn btn-success btn-resa" %>
 
-    <p class="number-of-days"></p>
   <% end %>
