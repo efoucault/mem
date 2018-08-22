@@ -7,3 +7,5 @@ hideProprietaireStuff();
 
 import { hideLocataireStuff } from '../components/toggle';
 hideLocataireStuff();
+
+
