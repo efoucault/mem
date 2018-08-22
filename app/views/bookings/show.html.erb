@@ -8,47 +8,53 @@
     <p>RESERVATION #<%= @booking.id%>-<%=@booking.created_at%></p>
   </div>
   <h3>Vous avez réservé une montre <%= @booking.watch.brand %></h3></br>
-  <img class="pic-customer-booking text-center" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <%= link_to user_path(@booking.customer) do %>
+    <% if @booking.customer.photo.present? %>
+      <%= cl_image_tag @booking.customer.photo, width: 100, crop: :fill, class: "pic-customer-booking text-center" %>
+    <% else %>
+      <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "pic-customer-booking text-center") %>
+    <%end%>
+  <%end%>
   <div class="booking-details">
-    <p>Cher(e) <%= @booking.customer.first_name %>, votre réservation de la montre <strong> <%= @booking.watch.brand %> - <%= @booking.watch.model %> </strong><br/> pour la période <strong> du <%= @booking.booking_start_date %> au <%= @booking.booking_end_date %></strong> a bien été prise en compte.<br/><strong><%=@booking.owner.first_name%></strong> va prendre contact concernant la livraison.</p>
+    <p>Cher(e) <%= @booking.customer.first_name %>, votre réservation de la montre <strong> <%= @booking.watch.brand %> - <%= @booking.watch.model %> </strong><br/> pour la période <strong> du <%= @booking.booking_start_date %> au <%= @booking.booking_end_date %></strong> a bien été prise en compte.<br/><strong><%=@booking.owner.first_name%></strong> va prendre contact avec vous concernant la livraison.</p>
     <hr color="gray">
+    <h4 class="text-left">Détails de la montre</h4>
     <div class="booking-details-montre">
-
-      <div class="flex">
-        <div>
-          <h4>Détails de la montre</h4>
-          <div class="flex">
-            <img class="booking-details-montre-pic" src="https://i.ebayimg.com/images/g/VQUAAOSwZ11aZgWn/s-l300.jpg">
-          <div class="booking-details-montre-descriptif">
-            <ul>
-              <li>Genre : <%= @booking.watch.gender %></li>
-              <li>Style : <%= @booking.watch.style %></li>
-              <li>Couleur : <%= @booking.watch.color %></li>
-              <li>Matière : <%= @booking.watch.case_material %></li>
-              <li>Méchanisme : <%= @booking.watch.mechanism %></li>
-              <li>Année de production : <%= @booking.watch.production_year %></li>
-            </ul>
-          </div>
-        </div>
-
+      <img class="booking-details-montre-pic" src="https://i.ebayimg.com/images/g/VQUAAOSwZ11aZgWn/s-l300.jpg">
+      <div class="booking-details-montre-descriptif">
+        <ul>
+          <li>Genre : <%= @booking.watch.gender %></li>
+          <li>Style : <%= @booking.watch.style %></li>
+          <li>Couleur : <%= @booking.watch.color %></li>
+          <li>Matière : <%= @booking.watch.case_material %></li>
+          <li>Méchanisme : <%= @booking.watch.mechanism %></li>
+          <li>Année de production : <%= @booking.watch.production_year %></li>
+        </ul>
       </div>
-      <div>
-          <h4>A propos du propriétaire</h4>
-          <div class="booking-details-montre-owner">
-            <img class="pic-customer-booking" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-            <strong>Owner</strong>
-            <%= link_to "#{@booking.owner.first_name} #{@booking.owner.last_name}", user_path(@booking.owner) %>
-            <%= @booking.owner.description%>
+    </div>
+    <hr color="gray">
+    <h4 class="text-left">A propos du propriétaire</h4>
+    <div class="booking-details-montre">
+        <div>
+          <%= link_to user_path(@booking.owner) do %>
+            <% if @booking.owner.photo.present? %>
+              <%= cl_image_tag @booking.owner.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
+            <% else %>
+              <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "pic-customer-booking") %>
+            <%end%>
+          <%end%>
+        </div>
+        <div style="padding:20px">
+          <strong><%= link_to "#{@booking.owner.first_name} #{@booking.owner.last_name}", user_path(@booking.owner) %></strong>
+          <br/>
+          <%= @booking.owner.description%>
         </div>
       </div>
     </div>
+    <hr color="gray">
+    <div class="messagerie text-left">
+      <h4>Vos messages avec <%=@booking.owner.first_name%></h4>
+    </div>
   </div>
-  <hr color="gray">
-  <div class="messagerie text-left">
-  <h4>Vos messages avec <%=@booking.owner.first_name%></h4>
-  </div>
-</div>
-
-</div>
 </div>
 
