@@ -55,6 +55,22 @@
     <div class="messagerie text-left">
       <h4>Vos messages avec <%=@booking.owner.first_name%></h4>
     </div>
+    <hr color="gray">
+    <div class="review text-left">
+      <h4>Ajoutez une review</h4>
+      <%= render "reviews/form" %>
+      <h4>Vos reviews avec <%=@booking.owner.first_name%></h4>
+      <% @booking.reviews.each do |review| %>
+        <% if review.customer != nil %>
+          <h3><%= "Voici la review de #{review.customer.first_name}" %></br></h3>
+        <% end %>
+        <% if review.owner != nil %>
+          <h3><%= "Voici la review de #{review.owner.first_name}" %></br></h3>
+        <% end %>
+        <p><%= review.comment %></br></p>
+        <p><%= review.rating %></br></p>
+      <% end %>
+    </div>
   </div>
 </div>
 
