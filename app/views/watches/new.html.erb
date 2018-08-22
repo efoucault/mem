@@ -24,10 +24,10 @@
             <%= f.input :color, label: false, prompt:  'Matière ', collection: @collection_case_material %>
             <%= f.input :style, label: false, prompt: 'Couleur ', collection: @collection_color %>
             <%= f.input :style, label: false, prompt: 'Méchanisme ', collection: @collection_mechanism %>
-            </div>
-            <p><strong>Ajouter une photo</strong></p>
+            </div><br/>
+            <p><strong>Ajoutez une photo</strong></p>
             <div class="form-inline line-form">
-              <%= f.input :photo, as: :file %>
+              <%= f.input :photo, label: false, as: :file %>
           </div>
         </div>
       </div>

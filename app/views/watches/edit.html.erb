@@ -15,7 +15,7 @@
             <%= f.input :model, label: false, placeholder: 'Modèle' %>
             <%= f.input :gender, label: false, prompt: 'Genre ', collection: @collection_gender %>
           </div>
-          <p><strong>Décrivez votre montre</strong></p>
+          <p><strong>Modifier le descriptif</strong></p>
           <%= f.input :description, label: false, placeholder: 'Timeless elegance in consummate form: with three hands and a discreet date display, this simple automatic watch has established itself as one of the most popular Portofino models.' %>
           <p><strong>Détails</strong></p>
           <div class="form-inline line-form">
@@ -24,7 +24,11 @@
             <%= f.input :color, label: false, prompt:  'Matière ', collection: @collection_case_material %>
             <%= f.input :style, label: false, prompt: 'Couleur ', collection: @collection_color %>
             <%= f.input :style, label: false, prompt: 'Méchanisme ', collection: @collection_mechanism %>
-
+          </div>
+          <br/>
+            <p><strong>Modifier la photo</strong></p>
+            <div class="form-inline line-form">
+              <%= f.input :photo, label: false, as: :file %>
           </div>
         </div>
       </div>
