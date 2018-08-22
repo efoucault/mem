@@ -21,9 +21,9 @@
           <div class="form-inline line-form">
             <%= f.input :style, label: false, prompt: 'Style ', collection: @collection_style %>
             <%= f.input :production_year, label: false, prompt: 'Année', start_year: 1900, end_year: Time.now.year, order: %i(year) %>
-            <%= f.input :color, label: false, prompt:  'Matière ', collection: @collection_case_material %>
-            <%= f.input :style, label: false, prompt: 'Couleur ', collection: @collection_color %>
-            <%= f.input :style, label: false, prompt: 'Méchanisme ', collection: @collection_mechanism %>
+            <%= f.input :case_material, label: false, prompt:  'Matière ', collection: @collection_case_material %>
+            <%= f.input :color, label: false, prompt: 'Couleur ', collection: @collection_color %>
+            <%= f.input :mechanism, label: false, prompt: 'Méchanisme ', collection: @collection_mechanism %>
           </div>
           <br/>
             <p><strong>Modifier la photo</strong></p>

@@ -21,9 +21,9 @@
           <div class="form-inline line-form">
             <%= f.input :style, label: false, prompt: 'Style ', collection: @collection_style %>
             <%= f.input :production_year, label: false, prompt: 'Année', start_year: 1900, end_year: Time.now.year, order: %i(year) %>
-            <%= f.input :color, label: false, prompt:  'Matière ', collection: @collection_case_material %>
-            <%= f.input :style, label: false, prompt: 'Couleur ', collection: @collection_color %>
-            <%= f.input :style, label: false, prompt: 'Méchanisme ', collection: @collection_mechanism %>
+            <%= f.input :case_material, label: false, prompt:  'Matière ', collection: @collection_case_material %>
+            <%= f.input :color, label: false, prompt: 'Couleur ', collection: @collection_color %>
+            <%= f.input :mechanism, label: false, prompt: 'Méchanisme ', collection: @collection_mechanism %>
             </div><br/>
             <p><strong>Ajoutez une photo</strong></p>
             <div class="form-inline line-form">
@@ -38,7 +38,14 @@
         </div>
         <div class="about-owner">
           <h3><%= "#{current_user.first_name} #{current_user.last_name}" %></h3>
-          <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"><span><%= current_user.description%></span>
+          <%= link_to user_path(current_user) do %>
+            <% if current_user.photo.present? %>
+              <%= cl_image_tag current_user.photo, width: 100, crop: :fill, class: "avatar" %>
+            <% else %>
+              <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "avatar") %>
+            <%end%>
+          <%end%>
+          <span><%= current_user.description%></span>
         </div>
       <% end %>
       </div>
