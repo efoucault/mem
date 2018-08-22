@@ -59,7 +59,7 @@ class WatchesController < ApplicationController
   end
 
   def collection
-    @collection_brand = ['Chopard', 'Bulgari','IWC', 'Audemars Piguet',  "Bell & Ross", "Rolex"]
+    @collection_brand = ['Chopard', 'Bulgari','IWC', 'Audemars Piguet',  "Bell & Ross", "Rolex", "Cartier"]
     @collection_gender = ['Homme', 'Femme','Unisex']
     @collection_color = ['Or', 'Argent', 'Bronze', 'Blanc', 'Noir', 'Marron', 'Bleu', 'Vert', 'Rouge', 'Orange', 'Jaune', 'Beige', 'Gris']
     @collection_mechanism = ['Automatique','Solaire','Kinetic','Quartz']
