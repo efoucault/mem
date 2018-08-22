@@ -28,7 +28,7 @@
       <% @user.bookings.each do |booking| %>
       <div class="col-xs-12 col-md-6 col-lg-4">
         <div class="watch-card">
-          <div class="watch-card-image" style="background-image: url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b0dad6307f4db24e9d52d0140adab06&auto=format&fit=crop&w=668&q=80')"></div>
+          <div class="watch-card-image" style="background-image: url(<%= booking.watch.photo %>)"></div>
             <div class="watch-card-content">
               <div class="watch-card-title">
                 <h4><strong><%= link_to "#{booking.owner.first_name} #{booking.owner.last_name}", booking_path(booking) %></strong></h4>
@@ -47,7 +47,7 @@
       <% @user.watches.each do |watch| %>
         <div class="col-xs-12 col-md-6 col-lg-4">
         <div class="watch-card">
-          <div class="watch-card-image" style="background-image: url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b0dad6307f4db24e9d52d0140adab06&auto=format&fit=crop&w=668&q=80')"></div>
+          <div class="watch-card-image" style="background-image: url(<%= watch.photo %>)"></div>
             <div class="watch-card-content">
               <div class="watch-card-title">
                 <h4><strong><%= "#{watch.model}" %></strong></h4>
@@ -66,7 +66,7 @@
         <% watch.bookings.each do |booking| %>
           <div class="col-xs-12 col-md-6 col-lg-4">
             <div class="watch-card">
-              <div class="watch-card-image" style="background-image: url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b0dad6307f4db24e9d52d0140adab06&auto=format&fit=crop&w=668&q=80')"></div>
+              <div class="watch-card-image" style="background-image: url(<%= watch.photo %>)"></div>
               <div class="watch-card-content">
                 <div class="watch-card-title">
                   <h4><strong><%= link_to "#{booking.owner.first_name} #{booking.owner.last_name}", booking_path(booking) %></strong></h4>
