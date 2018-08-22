@@ -19,20 +19,17 @@
   padding: 30px;
 }
 
-.buttons {
-  text-align: center;
-}
 .btn-primary {
   padding-left: 10px;
   padding-right: 10px;
   margin-left: 0;
   margin-right: 0;
   float: left;
-  background-color: #2A80CF;
-  border: 1px solid #2A80CF;
+  background-color: $blue;
+  border: 1px solid $blue;
   &:hover {
-   background-color: #2A80CF;
-   border: 1px solid #2A80CF;
+   background-color: $blue;
+   border: 1px solid $blue;
   }
 }
 
@@ -45,17 +42,17 @@
 }
 
 .enabled {
-  background-color: #F4F4F4;
+  background-color: white;
   color: #2A80CF;
-  border: 1px solid #2A80CF;
-  color: #2A80CF;
+  border: 1px solid $blue;
+  color: $blue;
   padding-left: 10px;
   padding-right: 10px;
   margin-left: 0;
   margin-right: 0;
   float: left;
   &:hover {
-   color: #2A80CF;
+   color: $blue;
    font-weight: 800;
   }
 }
