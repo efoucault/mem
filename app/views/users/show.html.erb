@@ -2,7 +2,11 @@
   <p id="notice"><%= notice %></p>
   <div class="row">
     <div class="col-xs-12 col-md-6">
-      <%= cl_image_tag @user.photo, class: "avatar-big" %>
+      <% if @user.photo.present? %>
+        <%= cl_image_tag @user.photo, width: 100, crop: :fill, class: "avatar avatar-big" %>
+        <% else %>
+        <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "avatar-big") %>
+      <%end%>
     </div>
     <div class="col-xs-12 col-md-6">
       <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
