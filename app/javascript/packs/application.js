@@ -7,6 +7,3 @@ hideProprietaireStuff();
 
 import { hideLocataireStuff } from '../components/toggle';
 hideLocataireStuff();
-
-import { autocomplete } from '../components/autocomplete';
-autocomplete();
