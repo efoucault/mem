@@ -11,12 +11,12 @@ User.destroy_all
 
 
 puts "users creation"
-john = User.create(password: 'abc123456', first_name: 'John', last_name: 'Doe', address: '44 Boulevard Magenta', description: 'Bell & Ross Lover', super_user: false, email: 'johndoe1@gmail.com')
-patrick = User.create(password: 'abc123456', first_name: 'Patrick', last_name: 'Pierrard', address: '15 rue du petit Musc', description: 'Rolex Lover', super_user: true, email: 'p.pierr1@gmail.com')
-eva = User.create(password: 'abc123456', first_name: 'Eva', last_name: 'Musso', address: '57 rue Saint Maur', description: 'Swatch Lover', super_user: false, email: 'musso.e2@gmail.com')
-charles = User.create(password: 'abc123456', first_name: 'Charles', last_name: 'Beigbeder', address: '40 Villa Gaudelet', description: 'IWC Lover', super_user: true, email: 'charlesbeig4@gmail.com')
-chloe = User.create(password: 'abc123456', first_name: 'Chloé', last_name: 'Van Reymant', address: '11 Rue de Belleville', description: 'FlicFlac Lover', super_user: false, email: 'vrchloe5@gmail.com')
-sarah = User.create(password: 'abc123456', first_name: 'Sarah', last_name: 'Ammar', address: '89 Boulevard Ménilmontant', description: 'Audemar Piguet Lover', super_user: false, email: 'sarahammar5@gmail.com')
+john = User.create(password: 'abc123456', first_name: 'John', last_name: 'Doe', address: '44 Boulevard Magenta, Paris', description: 'Bell & Ross Lover', super_user: false, email: 'johndoe1@gmail.com')
+patrick = User.create(password: 'abc123456', first_name: 'Patrick', last_name: 'Pierrard', address: '15 rue du petit Musc, Paris', description: 'Rolex Lover', super_user: true, email: 'p.pierr1@gmail.com')
+eva = User.create(password: 'abc123456', first_name: 'Eva', last_name: 'Musso', address: '57 rue Saint Maur, Paris', description: 'Swatch Lover', super_user: false, email: 'musso.e2@gmail.com')
+charles = User.create(password: 'abc123456', first_name: 'Charles', last_name: 'Beigbeder', address: '40 Richard lenoir, Paris', description: 'IWC Lover', super_user: true, email: 'charlesbeig4@gmail.com')
+chloe = User.create(password: 'abc123456', first_name: 'Chloé', last_name: 'Van Reymant', address: '11 Rue de Belleville, Paris', description: 'FlicFlac Lover', super_user: false, email: 'vrchloe5@gmail.com')
+sarah = User.create(password: 'abc123456', first_name: 'Sarah', last_name: 'Ammar', address: '89 Boulevard Ménilmontant, Paris', description: 'Audemar Piguet Lover', super_user: false, email: 'sarahammar5@gmail.com')
 p User.all
 
 puts "watches creation"
