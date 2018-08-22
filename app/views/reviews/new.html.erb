@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Create a new review</h1>
+  <%= simple_form_for [@booking, @review] do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :rating  %>
+    <%= f.submit "add a review", class: "btn btn-success" %>
+  <% end %>
+</div>
