@@ -22,7 +22,12 @@
         </div>
         <div class="about-owner">
           <h3><%= "Le propriétaire : #{@watch.user.first_name} #{@watch.user.last_name}" %></h3>
-          <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"><span><%= @watch.user.description%></span>
+          <% if @watch.user.photo.present? %>
+            <%= cl_image_tag @watch.user.photo, width: 100, crop: :fill, class: "avatar" %>
+          <% else %>
+            <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "avatar") %>
+          <%end%>
+          <span><%= @watch.user.description%></span>
         </div>
       </div>
       <div class="form-booking col-xs-12 col-md-4 col">
