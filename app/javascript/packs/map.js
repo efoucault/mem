@@ -14,80 +14,30 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   } else {
     map.fitLatLngBounds(markers);
   }
-const styles = [ {
-        "featureType": "water",
+const styles = [{
+        "featureType": "all",
         "stylers": [
             {
-                "saturation": 43
+                "saturation": 0
             },
             {
-                "lightness": -11
-            },
-            {
-                "hue": "#0088ff"
+                "hue": "#e7ecf0"
             }
         ]
     },
     {
         "featureType": "road",
-        "elementType": "geometry.fill",
         "stylers": [
             {
-                "hue": "#ff0000"
-            },
-            {
-                "saturation": -100
-            },
-            {
-                "lightness": 99
+                "saturation": -70
             }
         ]
     },
     {
-        "featureType": "road",
-        "elementType": "geometry.stroke",
+        "featureType": "transit",
         "stylers": [
             {
-                "color": "#808080"
-            },
-            {
-                "lightness": 54
-            }
-        ]
-    },
-    {
-        "featureType": "landscape.man_made",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#ece2d9"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.park",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#ccdca1"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "color": "#767676"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "color": "#ffffff"
+                "visibility": "off"
             }
         ]
     },
@@ -100,46 +50,13 @@ const styles = [ {
         ]
     },
     {
-        "featureType": "landscape.natural",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "color": "#b8cb93"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.park",
-        "stylers": [
-            {
-                "visibility": "on"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.sports_complex",
-        "stylers": [
-            {
-                "visibility": "on"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.medical",
-        "stylers": [
-            {
-                "visibility": "on"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.business",
+        "featureType": "water",
         "stylers": [
             {
                 "visibility": "simplified"
+            },
+            {
+                "saturation": -60
             }
         ]
     }];
