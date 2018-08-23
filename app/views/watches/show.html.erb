@@ -35,16 +35,19 @@
       <div class="form-booking col-xs-12 col-md-4 col">
         <%= render "bookings/newbooking" %>
         <br/>
-        <div class="actions-watch">
-          <p> Actions du propriétaire </p>
-          <div class='btn btn-success'>
-            <%= link_to "Editer", edit_watch_path(@watch.id) %>
+        <% if current_user == @watch.user %>
+          <div class="actions-watch">
+            <p><strong> Propriétaire </strong></p>
+            <p> Vous pouvez éditer ou supprimer la fiche de cette montre.</p>
+            <div class='btn btn-success'>
+              <%= link_to "Editer", edit_watch_path(@watch.id) %>
+            </div>
+            <div class='btn btn-danger'>
+              <%= link_to "Supprimer", watch_path(@watch.id),method: :delete, data: { confirm: "Voulez-vous vraiment supprimer votre montre de la location ?" } %>
+            </div>
           </div>
-          <div class='btn btn-danger'>
-            <%= link_to "Supprimer", watch_path(@watch.id),method: :delete, data: { confirm: "Voulez-vous vraiment supprimer votre montre de la location ?" } %>
-        </div>
+        <%end%>
       </div>
     </div>
   </div>
-</div>
 </div>
