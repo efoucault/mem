@@ -44,6 +44,20 @@
   height: 150px;
 }
 
+.radius-recap {
+  border-radius: 3px 0px 0px 3px;
+}
+
+.radius-message {
+  border-radius: 0px 0px 0px 0px;
+  border-left: none;
+  border-right: none;
+}
+
+.radius-review {
+  border-radius: 0px 3px 3px 0px;
+}
+
 .border {
   border: 1px solid black;
 }

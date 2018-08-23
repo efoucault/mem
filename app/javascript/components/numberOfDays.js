@@ -34,4 +34,3 @@ function datediff(first, second) {
 
 export { numberOfDays };
 
-

@@ -10,3 +10,14 @@ hideLocataireStuff();
 
 import { numberOfDays } from '../components/numberOfDays';
 numberOfDays();
+
+
+import { displayRecapBooking } from '../components/toggleBookingView';
+displayRecapBooking();
+
+import { displayMessageBooking } from '../components/toggleBookingView';
+displayMessageBooking();
+
+import { displayReviewBooking } from '../components/toggleBookingView';
+displayReviewBooking();
+
