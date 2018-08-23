@@ -13,10 +13,14 @@ function numberOfDays() {
       const numberOfDays = document.querySelector(".test-of-days");
       console.log(endDate.value);
       if (endDate.value != "") {
-        numberOfDays.insertAdjacentHTML("beforeend", `${days} jours`);
+        numberOfDays.insertAdjacentHTML("afterbegin", `${days}`);
         const price = document.querySelector(".price");
         totalPrice = days * pricePerDay;
-        price.insertAdjacentHTML("beforeend", `${totalPrice}€`);
+        price.insertAdjacentHTML("afterbegin", `${totalPrice}`);
+        const initialprice = document.querySelector(".initial-price");
+        initialprice.classList.toggle("hidden");
+        const resultat = document.querySelector(".resultat");
+        resultat.classList.toggle("hidden");
       }
     });
   });
@@ -29,3 +33,5 @@ function datediff(first, second) {
 }
 
 export { numberOfDays };
+
+
