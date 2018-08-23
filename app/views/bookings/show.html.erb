@@ -66,14 +66,14 @@
     </div>
 
     <hr color="gray">
-    <div class="message">
+    <div class="message" style="display:none;">
       <div class="messagerie text-left">
         <h4>Vos messages avec <%=@booking.owner.first_name%></h4>
       </div>
       <hr color="gray">
     </div>
 
-    <div class="review">
+    <div class="review" style="display:none;">
       <div class="review text-left">
       <h4>Ajoutez une review</h4>
       <%= render "reviews/form" %>
@@ -81,13 +81,14 @@
       <% @booking.reviews.each do |review| %>
         <% if review.customer != nil %>
           <div class="review">
-            <h4><%= "Review de #{review.customer.first_name}" %></br></h4>
             <div class="review-display">
               <div class="avatar-review">
                 <%= cl_image_tag review.customer.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
               </div>
               <div class="details-review">
+                <h4><%= "Review de #{review.customer.first_name}" %></br></h4>
                 <p><%= review.comment %></br></p>
+
                 <% review.rating.to_i.times do %>
                   <i class="fas fa-star yellow-stars"></i>
                 <% end %>
@@ -100,12 +101,12 @@
         <% end %>
         <% if review.owner != nil %>
           <div class="review">
-            <h4><%= "Review de #{review.owner.first_name}" %></br></h4>
             <div class="review-display">
               <div class="avatar-review">
                 <%= cl_image_tag review.owner.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
               </div>
               <div class="details-review">
+                <h4><%= "Review de #{review.owner.first_name}" %></br></h4>
                 <p><%= review.comment %></br></p>
                 <% review.rating.to_i.times do %>
                   <i class="fas fa-star yellow-stars"></i>
