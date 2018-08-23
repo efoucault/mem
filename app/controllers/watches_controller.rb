@@ -19,10 +19,11 @@ class WatchesController < ApplicationController
         #   text: "Watch",
         #   color: "black",
         #   fontWeight: "bold",
-        #   fontSize: "16px"
+        #   fontSize: "16px"g
         # },
         icon: "https://res.cloudinary.com/de06zwkul/image/upload/v1535028449/mem-markr.png",
-        infoWindow: { content: "<strong> #{user.first_name} </strong>  #{user.last_name}" }
+        infoWindow: { content: render_to_string(partial: 'watches/infobox', locals: {user:user}) }
+
       }
     end
   end
