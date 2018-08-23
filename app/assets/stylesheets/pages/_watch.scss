@@ -13,7 +13,9 @@
 }
 
 .about-owner {
-  margin-top: 60px;
+  min-height: 250px;
+  background-color: white;
+  padding: 20px;
 }
 
 .btn-return {
@@ -34,4 +36,24 @@
     color: white;
     text-decoration: none;
   }
+}
+
+.watch-rating {
+  display: flex;
+}
+
+.watch-rating-count {
+  padding-left: 15px;
+}
+
+.text-left {
+  background-color: white;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.watch-description {
+  background-color: white;
+  padding: 20px;
+  margin-top: 38px;
 }
