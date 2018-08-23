@@ -2,10 +2,10 @@
         <%= link_to "Retour", watches_path, class: "btn-return" %>
 </div>
 
-<div class="container">
-  <div class="details">
+<div class="details">
+  <div class="container">
     <div class="row">
-      <div class="description-watch col-xs-12 col-md-8 col">
+      <div class="description-watch col-xs-10 col-sm-offset-2">
         <div class="watch-description">
           <h1><%= @watch.brand %> - <%= @watch.model %></h1>
           <div class="watch-rating">
@@ -88,22 +88,25 @@
           <% end %>
         </div>
       </div>
-      <div class="form-booking col-xs-12 col-md-4 col">
-        <%= render "bookings/newbooking" %>
-        <br/>
-        <% if current_user == @watch.user %>
-          <div class="actions-watch">
-            <p><strong> Propriétaire </strong></p>
-            <p> Vous pouvez éditer ou supprimer la fiche de cette montre.</p>
-            <div class='btn btn-success'>
-              <%= link_to "Editer", edit_watch_path(@watch.id) %>
-            </div>
-            <div class='btn btn-danger'>
-              <%= link_to "Supprimer", watch_path(@watch.id),method: :delete, data: { confirm: "Voulez-vous vraiment supprimer votre montre de la location ?" } %>
-            </div>
-          </div>
-        <%end%>
-      </div>
     </div>
   </div>
-</div>
+
+<div id="price-box">
+        <div class="form-booking">
+          <%= render "bookings/newbooking" %>
+          <br/>
+          <% if current_user == @watch.user %>
+            <div class="actions-watch">
+              <p><strong> Propriétaire </strong></p>
+              <p> Vous pouvez éditer ou supprimer la fiche de cette montre.</p>
+              <div class='btn btn-success'>
+                <%= link_to "Editer", edit_watch_path(@watch.id) %>
+              </div>
+              <div class='btn btn-danger'>
+                <%= link_to "Supprimer", watch_path(@watch.id),method: :delete, data: { confirm: "Voulez-vous vraiment supprimer votre montre de la location ?" } %>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
+    </div>
