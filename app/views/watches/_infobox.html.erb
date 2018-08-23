@@ -1,0 +1,25 @@
+
+<div class="watch-card">
+              <div class="watch-card-image" style="background-image: url(<%= user.watches.last.photo %>)"></div>
+              <div class="watch-card-content">
+                <div class="watch-card-title">
+                  <div class="infos">
+                    <h4><strong><%= user.watches.last.brand %></strong></h4>
+                    <p><%= user.watches.last.model %></p>
+                  </div>
+                </div>
+              </div>
+              <div class="watch-card-actions">
+                              <span><%= user.watches.last.price_per_day %> € par jour</span>
+                              <span>
+                                <% if user.photo.present? %>
+                                 <%=cl_image_tag user.photo, height: 40, crop: :fill, class: "card-user-infobox" %>
+                                <% else %>
+                                  <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "card-user")%>
+                                <%end%>
+                              </span>
+                            </div>
+
+                            </div>
+              <%= link_to "", watch_path(user.watches.last), class: 'card-link' %>
+            </div>
