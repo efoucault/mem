@@ -21,3 +21,6 @@ displayMessageBooking();
 import { displayReviewBooking } from '../components/toggleBookingView';
 displayReviewBooking();
 
+import { dynamicBarStatus, fillProgressbar } from '../components/progressbar';
+dynamicBarStatus();
+fillProgressbar();

@@ -15,18 +15,40 @@
       <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "pic-customer-booking text-center") %>
     <%end%>
   <%end%>
+  <% if current_user == @booking.watch.user %>
+    <% if @booking.status.to_i == 20 %>
+      <%= simple_form_for(@booking) do |f| %>
+        <%= f.hidden_field :status, :value => "45"%>
+        <%= f.submit "Confirmer la location", class: "btn btn-success btn-resa" %>
+      <%end%>
+    <%end%>
+    <% if @booking.status.to_i == 45 %>
+      <%= simple_form_for(@booking) do |f| %>
+        <%= f.hidden_field :status, :value => "90"%>
+        <%= f.submit "J'ai récupéré la montre", class: "btn btn-success btn-resa" %>
+      <%end%>
+    <%end%>
+  <%end%>
+
+    <div class="status-bar">
+      <div class="barWrapper">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-width="<%=@booking.status%>%">
+              <span  class="popOver" data-toggle="tooltip" data-placement="top" title='<%=@tooltip_info%>'></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="radius-recap btn btn-primary btn-recap">Réservation</button>
+      <button class="radius-message btn enabled btn-message">Messages</button>
+      <button class="radius-review btn enabled btn-review">Review</button>
+    </div>
 
   <div class="booking-details">
 
-    <p>Status de la réservation</p>
 
-    ((ajouter css progression bar))
-
-    <div class="buttons">
-      <button class="radius-recap btn btn-primary btn-recap">Réservation</a>
-      <button class="radius-message btn enabled btn-message">Messages</a>
-      <button class="radius-review btn enabled btn-review">Review</a>
-    </div>
 
     <br/>
     <hr color="gray">
@@ -47,20 +69,19 @@
 
       <h4 class="text-left">A propos du propriétaire</h4>
       <div class="booking-details-montre">
-          <div>
-            <%= link_to user_path(@booking.owner) do %>
-              <% if @booking.owner.photo.present? %>
-                <%= cl_image_tag @booking.owner.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
-              <% else %>
-                <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "pic-customer-booking") %>
-              <%end%>
+        <div>
+          <%= link_to user_path(@booking.owner) do %>
+            <% if @booking.owner.photo.present? %>
+              <%= cl_image_tag @booking.owner.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
+            <% else %>
+              <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "pic-customer-booking") %>
             <%end%>
-          </div>
-          <div style="padding:20px">
-            <strong><%= link_to "#{@booking.owner.first_name} #{@booking.owner.last_name}", user_path(@booking.owner) %></strong>
-            <br/>
-            <%= @booking.owner.description%>
-          </div>
+          <%end%>
+        </div>
+        <div style="padding:20px">
+          <strong><%= link_to "#{@booking.owner.first_name} #{@booking.owner.last_name}", user_path(@booking.owner) %></strong>
+          <br/>
+          <%= @booking.owner.description%>
         </div>
       </div>
     </div>
@@ -75,54 +96,56 @@
 
     <div class="review" style="display:none;">
       <div class="review text-left">
-      <h4>Ajoutez une review</h4>
-      <%= render "reviews/form" %>
-      <h4>Vos reviews avec <%=@booking.owner.first_name%></h4>
-      <% @booking.reviews.each do |review| %>
-        <% if review.customer != nil %>
-          <div class="review">
-            <div class="review-display">
-              <div class="avatar-review">
-                <%= cl_image_tag review.customer.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
-              </div>
-              <div class="details-review">
-                <h4><%= "Review de #{review.customer.first_name}" %></br></h4>
-                <p><%= review.comment %></br></p>
+        <h4>Ajoutez une review</h4>
+        <%= render "reviews/form" %>
+        <h4>Vos reviews avec <%=@booking.owner.first_name%></h4>
+        <% @booking.reviews.each do |review| %>
+          <% if review.customer != nil %>
+            <div class="review">
+              <div class="review-display">
+                <div class="avatar-review">
+                  <%= cl_image_tag review.customer.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
+                </div>
+                <div class="details-review">
+                  <h4><%= "Review de #{review.customer.first_name}" %></br></h4>
+                  <p><%= review.comment %></br></p>
 
-                <% review.rating.to_i.times do %>
-                  <i class="fas fa-star yellow-stars"></i>
-                <% end %>
-                <% (5 -review.rating.to_i).times do %>
-                  <i class="fas fa-star grey-stars"></i>
-                <% end %>
+                  <% review.rating.to_i.times do %>
+                    <i class="fas fa-star yellow-stars"></i>
+                  <% end %>
+                  <% (5 -review.rating.to_i).times do %>
+                    <i class="fas fa-star grey-stars"></i>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
-        <% if review.owner != nil %>
-          <div class="review">
-            <div class="review-display">
-              <div class="avatar-review">
-                <%= cl_image_tag review.owner.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
-              </div>
-              <div class="details-review">
-                <h4><%= "Review de #{review.owner.first_name}" %></br></h4>
-                <p><%= review.comment %></br></p>
-                <% review.rating.to_i.times do %>
-                  <i class="fas fa-star yellow-stars"></i>
-                <% end %>
-                <% (5 -review.rating.to_i).times do %>
-                  <i class="fas fa-star grey-stars"></i>
-                <% end %>
+          <% end %>
+          <% if review.owner != nil %>
+            <div class="review">
+              <div class="review-display">
+                <div class="avatar-review">
+                  <%= cl_image_tag review.owner.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
+                </div>
+                <div class="details-review">
+                  <h4><%= "Review de #{review.owner.first_name}" %></br></h4>
+                  <p><%= review.comment %></br></p>
+                  <% review.rating.to_i.times do %>
+                    <i class="fas fa-star yellow-stars"></i>
+                  <% end %>
+                  <% (5 -review.rating.to_i).times do %>
+                    <i class="fas fa-star grey-stars"></i>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
+
 </div>
-</div>
+
 
 <li class= "price-per-day" style="display:none"><%= @booking.watch.price_per_day %></li>
 
