@@ -45,7 +45,7 @@
         <div class="watch-card">
           <div class="watch-card-image" style="background-image: url(<%= booking.watch.photo %>)"></div>
             <div class="watch-card-content">
-              <div class="watch-card-title">
+              <div class="watch-card-title-user">
                 <h4><strong><%= link_to "#{booking.owner.first_name} #{booking.owner.last_name}", booking_path(booking) %></strong></h4>
                 <%= booking.watch.model %>
                 <%= booking.customer.first_name %>
@@ -73,7 +73,7 @@
         <div class="watch-card">
           <div class="watch-card-image" style="background-image: url(<%= watch.photo %>)"></div>
             <div class="watch-card-content">
-              <div class="watch-card-title">
+              <div class="watch-card-title-user">
                 <h4><strong><%= link_to "#{watch.model}", watch_path(watch) %></strong></h4>
                 <%= watch.brand %>
                 <%= watch.production_year %>
@@ -93,7 +93,7 @@
             <div class="watch-card">
               <div class="watch-card-image" style="background-image: url(<%= watch.photo %>)"></div>
               <div class="watch-card-content">
-                <div class="watch-card-title">
+                <div class="wwatch-card-title-user">
                   <h4><strong><%= link_to "#{booking.owner.first_name} #{booking.owner.last_name}", booking_path(booking) %></strong></h4>
                   <%= booking.watch.model %>
                   <%= booking.customer.first_name %>
