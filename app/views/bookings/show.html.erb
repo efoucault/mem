@@ -62,13 +62,43 @@
       <h4>Vos reviews avec <%=@booking.owner.first_name%></h4>
       <% @booking.reviews.each do |review| %>
         <% if review.customer != nil %>
-          <h3><%= "Voici la review de #{review.customer.first_name}" %></br></h3>
+          <div class="review">
+            <h3><%= "Review de #{review.customer.first_name}" %></br></h3>
+            <div class="review-display">
+              <div class="avatar-review">
+                <%= cl_image_tag review.customer.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
+              </div>
+              <div class="details-review">
+                <p><%= review.comment %></br></p>
+                <% review.rating.to_i.times do %>
+                  <i class="fas fa-star yellow-stars"></i>
+                <% end %>
+                <% (5 -review.rating.to_i).times do %>
+                  <i class="fas fa-star grey-stars"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
         <% end %>
         <% if review.owner != nil %>
-          <h3><%= "Voici la review de #{review.owner.first_name}" %></br></h3>
+          <div class="review">
+            <h3><%= "Review de #{review.owner.first_name}" %></br></h3>
+            <div class="review-display">
+              <div class="avatar-review">
+                <%= cl_image_tag review.owner.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
+              </div>
+              <div class="details-review">
+                <p><%= review.comment %></br></p>
+                <% review.rating.to_i.times do %>
+                  <i class="fas fa-star yellow-stars"></i>
+                <% end %>
+                <% (5 -review.rating.to_i).times do %>
+                  <i class="fas fa-star grey-stars"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
         <% end %>
-        <p><%= review.comment %></br></p>
-        <p><%= review.rating %></br></p>
       <% end %>
     </div>
   </div>
