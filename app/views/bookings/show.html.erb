@@ -68,7 +68,32 @@
     <hr color="gray">
     <div class="message">
       <div class="messagerie text-left">
-        <h4>Vos messages avec <%=@booking.owner.first_name%></h4>
+        <% @booking.messages.each do |message| %>
+          <% if message.customer.present? %>
+            <div class="message-customer">
+              <div class="message-photo">
+                <%= cl_image_tag message.customer.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
+              </div>
+              <div class="message-content">
+                <strong><%= "#{message.customer.first_name} - " %></strong>
+                <%= "#{message.created_at.strftime("%d/%m/%Y")} #{message.created_at.strftime("%k:%M")}" %></br>
+                <%= message.message %></br>
+              </div>
+            </div>
+          <% else %>
+            <div class="message-owner">
+              <div class="message-content">
+                <strong><%= "#{message.owner.first_name} - " %></strong>
+                <%= "#{message.created_at.strftime("%d/%m/%Y")} #{message.created_at.strftime("%k:%M")}" %></br>
+                <%= message.message %></br>
+              </div>
+              <div class="message-photo">
+                <%= cl_image_tag message.owner.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+        <%= render "messages/form" %>
       </div>
       <hr color="gray">
     </div>
