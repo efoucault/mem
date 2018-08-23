@@ -15,7 +15,7 @@
   background-size:cover
 }
 .watch-card-content {
-  padding:20px;
+  padding: 5px 20px;
   background-color:#F8F9FA
 }
 .watch-card-actions {
@@ -56,4 +56,14 @@
 #dates {
   color: gray;
   font-size: 14px;
+}
+
+.watch-card-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.average-rating {
+  position: relative;
+  top: 5px;
 }
