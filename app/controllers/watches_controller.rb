@@ -3,7 +3,11 @@ class WatchesController < ApplicationController
 
 
   def index
-    @watches = Watch.all
+    if params['query'].present?
+      @watches = Watch.search_watches(params['query'])
+    else
+      @watches = Watch.all
+    end
     @users = User.where.not(latitude: nil, longitude: nil)
 
     @markers = @users.map do |user|

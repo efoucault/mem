@@ -3,6 +3,13 @@
     <%= image_tag "montre.png", height: 50 %>
     <h1>Votre temps est précieux</h1>
     <p>Location de montres de luxe de particulier à particulier</p>
+    <%= form_tag watches_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Rechercher une montre"
+    %>
+<% end %>
   </div>
 </div>
 
