@@ -52,7 +52,7 @@
                 <span><%= watch.price_per_day %> € par jour</span>
                 <span>
                   <% if watch.user.photo.present? %>
-                   <%= cl_image_tag watch.user.photo, height: 40, crop: :fill, class: "card-user" %>
+                   <%= cl_image_tag watch.user.photo, crop: :fill, class: "card-user" %>
                   <% else %>
                      <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "card-user") %>
                   <%end%>

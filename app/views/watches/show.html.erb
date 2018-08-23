@@ -54,7 +54,7 @@
           <h3><%= "Le propriétaire : #{@watch.user.first_name} #{@watch.user.last_name}" %></h3>
           <%= link_to user_path(@watch.user) do %>
             <% if @watch.user.photo.present? %>
-              <%= cl_image_tag @watch.user.photo, width: 100, crop: :fill, class: "avatar" %>
+              <%= cl_image_tag @watch.user.photo, crop: :fill, class: "avatar" %>
             <% else %>
               <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "avatar") %>
             <%end%>
@@ -69,7 +69,7 @@
                 <div class="review">
                   <div class="review-display">
                     <div class="avatar-review">
-                      <%= cl_image_tag review.customer.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
+                      <%= cl_image_tag review.customer.photo, crop: :fill, class: "pic-customer-booking" %>
                     </div>
                     <div class="details-review">
                         <h4><%= "Review de #{review.customer.first_name}" %></br></h4>

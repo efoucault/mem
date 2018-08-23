@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-6">
       <% if @user.photo.present? %>
-        <%= cl_image_tag @user.photo, width: 100, crop: :fill, class: "avatar avatar-big" %>
+        <%= cl_image_tag @user.photo, crop: :fill, class: "avatar avatar-big" %>
         <% else %>
         <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "avatar-big") %>
       <%end%>
@@ -54,7 +54,7 @@
                 <span id="dates">du <%= booking.booking_start_date %> au <%= booking.booking_end_date %></span>
                 <span>
                   <% if booking.watch.user.photo.present? %>
-                   <%= cl_image_tag booking.watch.user.photo, height: 40, crop: :fill, class: "card-user" %>
+                   <%= cl_image_tag booking.watch.user.photo, crop: :fill, class: "card-user" %>
                   <% else %>
                      <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "card-user") %>
                   <%end%>
@@ -102,7 +102,7 @@
                   <span id="dates">du <%= booking.booking_start_date %> au <%= booking.booking_end_date %></span>
                   <span>
                     <% if watch.user.photo.present? %>
-                     <%= cl_image_tag watch.user.photo, height: 40, crop: :fill, class: "card-user" %>
+                     <%= cl_image_tag watch.user.photo, crop: :fill, class: "card-user" %>
                     <% else %>
                        <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "card-user") %>
                     <%end%>
