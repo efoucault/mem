@@ -64,6 +64,9 @@
 
 .review-display {
   display: flex;
+  margin-top: 30px;
+  padding-bottom: 15px;
+  border-bottom: rgb(240, 240, 240) 1px solid;
 }
 
 .avatar-review {
@@ -73,7 +76,6 @@
 
 .review {
   h4 {
-    margin-left: 20%;
     text-align: left;
     color: rgb(50, 50, 50);
     font-size: 20px;
@@ -94,3 +96,4 @@
   padding: 2px;
   float: left;
 }
+
