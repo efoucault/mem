@@ -13,8 +13,16 @@ class WatchesController < ApplicationController
     @markers = @users.map do |user|
       {
         lat: user.latitude,
-        lng: user.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        lng: user.longitude,
+        # url: link_to @users(user)
+        # label: {
+        #   text: "Watch",
+        #   color: "black",
+        #   fontWeight: "bold",
+        #   fontSize: "16px"
+        # },
+        icon: "https://res.cloudinary.com/de06zwkul/image/upload/v1535028449/mem-markr.png",
+        infoWindow: { content: "<strong> #{user.first_name} </strong>  #{user.last_name}" }
       }
     end
   end
