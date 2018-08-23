@@ -1,15 +1,12 @@
-<div class="banner text-center" style="background-image: url('https://images.unsplash.com/photo-1488132828189-4e416661b680?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5a16bce80dad1d3afc02a021bd255357&auto=format&fit=crop&w=1650&q=80');">
+<div class="banner-home text-center" style="background-image: url('https://images.unsplash.com/photo-1488132828189-4e416661b680?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5a16bce80dad1d3afc02a021bd255357&auto=format&fit=crop&w=1650&q=80');">
   <div class="banner-content">
     <%= image_tag "montre.png", height: 50 %>
     <h1>Votre temps est précieux</h1>
     <p>Location de montres de luxe de particulier à particulier</p>
-    <%= form_tag watches_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Rechercher une montre"
-    %>
-<% end %>
+      <form action="/watches" method="get" class="form-inline searchbar">
+        <input type="text" name="query" placeholder="Recherchez une montre" class="form-control search-input">
+        <input type="submit" class= "btn btn-success" value="Ok">
+      </form>
   </div>
 </div>
 

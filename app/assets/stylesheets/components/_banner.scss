@@ -1,7 +1,7 @@
- .banner {
+ .banner-home {
   color: white;
   text-align: center;
-  height: 40vh;
+  height: 45vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -34,4 +34,12 @@
   background-size: cover;
 background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,5)), url('https://images.unsplash.com/photo-1524098837898-6b1c101a85f6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fb244e40d62662b07e55c0877beadf1f&auto=format&fit=crop&w=1650&q=80');
 color: white;
+}
+
+.searchbar {
+  margin-top: 20%;
+}
+
+.search-input {
+  width: 400px !important;
 }
