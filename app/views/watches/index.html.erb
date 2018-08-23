@@ -19,8 +19,33 @@
               <div class="watch-card-image" style="background-image: url(<%= watch.photo %>)"></div>
               <div class="watch-card-content">
                 <div class="watch-card-title">
-                  <h4><strong><%= watch.brand %></strong></h4>
-                  <p><%= watch.model %></p>
+                  <div class="infos">
+                    <h4><strong><%= watch.brand %></strong></h4>
+                    <p><%= watch.model %></p>
+                  </div>
+                  <div class="average-rating">
+                    <% ratings = 0 %>
+                    <% total_rating = 0 %>
+                    <% watch.bookings.each do |booking| %>
+                      <% booking.reviews.each do |review| %>
+                        <% if review.customer.present? && review.rating.present? %>
+                          <% review.rating %>
+                          <% total_rating = total_rating + review.rating %>
+                          <% ratings += 1 %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                    <% if total_rating != 0 %>
+                      <div class="star-ratings-css">
+                        <div class="star-ratings-css-top" style="width: <%= (((total_rating.fdiv(ratings)) / 5) * 110) %>%">
+                          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                        <div class="star-ratings-css-bottom">
+                          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
               </div>
               <div class="watch-card-actions">

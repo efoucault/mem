@@ -44,3 +44,39 @@
   height: 150px;
 }
 
+.border {
+  border: 1px solid black;
+}
+
+.review-display {
+  display: flex;
+}
+
+.avatar-review {
+  margin-left: 20%;
+  margin-right: 10%;
+}
+
+.review {
+  h3 {
+    margin-left: 20%;
+    text-align: left;
+    color: rgb(50, 50, 50);
+    font-size: 20px;
+    font-weight: 800;
+    font-family: "PT Sans", "Open Sans", "Helvetica", "sans-serif";
+  }
+}
+
+.yellow-stars {
+  color: #FABB1F;
+  font-size: 18px;
+  padding: 2px;
+  float: left;
+}
+.grey-stars {
+  color: rgb(100, 100, 100);
+  font-size: 18px;
+  padding: 2px;
+  float: left;
+}
