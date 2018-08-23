@@ -51,14 +51,24 @@
           </div>
         </div>
         <div class="about-owner">
-          <h3><%= "Le propriétaire : #{@watch.user.first_name} #{@watch.user.last_name}" %></h3>
-          <%= link_to user_path(@watch.user) do %>
+          <div id="map" class="map-show" data-markers="<%= @markers.to_json %>"></div>
+          <table style="width: 100%;" >
+          <tbody>
+          <tr>
+          <td style="width: 20%; text-align: center;"><%= link_to user_path(@watch.user) do %>
             <% if @watch.user.photo.present? %>
-              <%= cl_image_tag @watch.user.photo, crop: :fill, class: "avatar" %>
+              <%= cl_image_tag @watch.user.photo, crop: :fill, class: "avatar-big show-watch" %>
             <% else %>
               <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "avatar") %>
             <%end%>
-          <%end%>
+          <%end%></td>
+          <td><h3><%= "Bonjour, je m'appelle #{@watch.user.first_name}" %></h3>
+            <span style="font-size: 12px; font-weight: lower;">Membre depuis le <%= @watch.user.created_at %><span>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <br>
           <span><%= @watch.user.description%></span>
         </div>
         <div class="review text-left">

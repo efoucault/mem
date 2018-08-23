@@ -1,4 +1,8 @@
 #map {
+
+}
+
+#map.map-index {
   flex: 0 0 600px;
   position: sticky !important;
   height: 90vh !important;
@@ -8,6 +12,12 @@
   top: 0px !important;
   margin: 26px
 }
+
+#map.map-show {
+  flex: 0 0 0;
+  height: 35vh !important;
+}
+
 .content {
   display: flex;
 }
