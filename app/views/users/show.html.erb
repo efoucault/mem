@@ -14,7 +14,7 @@
       <% total_rating = 0 %>
       <% @user.bookings.each do |booking| %>
         <% booking.reviews.each do |review| %>
-          <% if review.owner.present? %>
+          <% if review.owner.present? && review.rating.present? %>
             <% review.rating %>
             <% total_rating = total_rating + review.rating %>
             <% ratings += 1 %>
