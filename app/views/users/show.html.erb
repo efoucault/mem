@@ -10,6 +10,21 @@
     </div>
     <div class="col-xs-12 col-md-6">
       <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
+      <% ratings = 0 %>
+      <% total_rating = 0 %>
+      <% @user.bookings.each do |booking| %>
+        <% booking.reviews.each do |review| %>
+          <% if review.owner.present? && review.rating.present? %>
+            <% review.rating %>
+            <% total_rating = total_rating + review.rating %>
+            <% ratings += 1 %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <div class="star-ratings-css">
+        <div class="star-ratings-css-top" style="width: <%= (((total_rating.fdiv(ratings)) / 5) * 110) %>%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      </div>
       <p><%= @user.description %></p>
       <%= link_to edit_user_path(@user) do %>
         <i class="fas fa-edit"></i>
@@ -20,8 +35,8 @@
 <div class="wrapper">
   <div class="container">
     <div class="buttons">
-      <a href="#" class="radius-loc btn btn-primary btn-loc">vue Locataire</a>
-      <a href="#" class="radius-prop btn enabled btn-prop">vue Propriétaire</a>
+      <button class="radius-loc btn btn-primary btn-loc">vue Locataire</button>
+      <button class="radius-prop btn enabled btn-prop">vue Propriétaire</button>
     </div>
     <div class="row loc">
       <h1>Mes locations</h1>
@@ -30,7 +45,7 @@
         <div class="watch-card">
           <div class="watch-card-image" style="background-image: url(<%= booking.watch.photo %>)"></div>
             <div class="watch-card-content">
-              <div class="watch-card-title">
+              <div class="watch-card-title-user">
                 <h4><strong><%= link_to "#{booking.owner.first_name} #{booking.owner.last_name}", booking_path(booking) %></strong></h4>
                 <%= booking.watch.model %>
                 <%= booking.customer.first_name %>
@@ -58,7 +73,7 @@
         <div class="watch-card">
           <div class="watch-card-image" style="background-image: url(<%= watch.photo %>)"></div>
             <div class="watch-card-content">
-              <div class="watch-card-title">
+              <div class="watch-card-title-user">
                 <h4><strong><%= link_to "#{watch.model}", watch_path(watch) %></strong></h4>
                 <%= watch.brand %>
                 <%= watch.production_year %>
@@ -78,7 +93,7 @@
             <div class="watch-card">
               <div class="watch-card-image" style="background-image: url(<%= watch.photo %>)"></div>
               <div class="watch-card-content">
-                <div class="watch-card-title">
+                <div class="wwatch-card-title-user">
                   <h4><strong><%= link_to "#{booking.owner.first_name} #{booking.owner.last_name}", booking_path(booking) %></strong></h4>
                   <%= booking.watch.model %>
                   <%= booking.customer.first_name %>

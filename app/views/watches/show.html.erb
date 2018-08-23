@@ -1,6 +1,6 @@
 <div class="banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= @watch.photo %>)">
         <%= link_to "Retour", watches_path, class: "btn-return" %>
-  </div>
+</div>
 
 <div class="container">
   <div class="details">
@@ -49,5 +49,31 @@
         <%end%>
       </div>
     </div>
+  </div>
+  <div class="review text-left">
+    <h3>Les avis des autres locataires</h3>
+    <% @watch.bookings.each do |booking| %>
+      <% booking.reviews.each do |review| %>
+        <% if review.customer != nil %>
+          <div class="review">
+            <h4><%= "Review de #{review.customer.first_name}" %></br></h4>
+            <div class="review-display">
+              <div class="avatar-review">
+                <%= cl_image_tag review.customer.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
+              </div>
+              <div class="details-review">
+                <p><%= review.comment %></br></p>
+                <% review.rating.to_i.times do %>
+                  <i class="fas fa-star yellow-stars"></i>
+                <% end %>
+                <% (5 -review.rating.to_i).times do %>
+                  <i class="fas fa-star grey-stars"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>
