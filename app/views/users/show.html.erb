@@ -32,10 +32,18 @@
             <div class="watch-card-content">
               <div class="watch-card-title">
                 <h4><strong><%= link_to "#{booking.owner.first_name} #{booking.owner.last_name}", booking_path(booking) %></strong></h4>
-                <%= booking.booking_start_date %>
-                <%= booking.booking_end_date %>
                 <%= booking.watch.model %>
                 <%= booking.customer.first_name %>
+              </div>
+              <div class="watch-card-actions">
+                <span id="dates">du <%= booking.booking_start_date %> au <%= booking.booking_end_date %></span>
+                <span>
+                  <% if booking.watch.user.photo.present? %>
+                   <%= cl_image_tag booking.watch.user.photo, height: 40, crop: :fill, class: "card-user" %>
+                  <% else %>
+                     <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "card-user") %>
+                  <%end%>
+                </span>
               </div>
             </div>
             <%= link_to "", booking_path(booking), class: 'card-link' %>
@@ -51,12 +59,13 @@
           <div class="watch-card-image" style="background-image: url(<%= watch.photo %>)"></div>
             <div class="watch-card-content">
               <div class="watch-card-title">
-                <h4><strong><%= "#{watch.model}" %></strong></h4>
+                <h4><strong><%= link_to "#{watch.model}", watch_path(watch) %></strong></h4>
                 <%= watch.brand %>
                 <%= watch.production_year %>
                 <%= watch.price_per_day %>
               </div>
             </div>
+            <%= link_to "", watch_path(watch), class: 'card-link' %>
           </div>
         </div>
       <% end %>
@@ -71,12 +80,21 @@
               <div class="watch-card-content">
                 <div class="watch-card-title">
                   <h4><strong><%= link_to "#{booking.owner.first_name} #{booking.owner.last_name}", booking_path(booking) %></strong></h4>
-                  <%= booking.booking_start_date %>
-                  <%= booking.booking_end_date %>
                   <%= booking.watch.model %>
                   <%= booking.customer.first_name %>
                 </div>
+                <div class="watch-card-actions">
+                  <span id="dates">du <%= booking.booking_start_date %> au <%= booking.booking_end_date %></span>
+                  <span>
+                    <% if watch.user.photo.present? %>
+                     <%= cl_image_tag watch.user.photo, height: 40, crop: :fill, class: "card-user" %>
+                    <% else %>
+                       <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "card-user") %>
+                    <%end%>
+                  </span>
+                </div>
               </div>
+              <%= link_to "", booking_path(booking), class: 'card-link' %>
             </div>
           </div>
         <% end %>
