@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Create a new message</h1>
+  <%= simple_form_for [@booking, @message] do |f| %>
+    <%= f.input :message %>
+    <%= f.submit "add a message", class: "btn btn-success" %>
+  <% end %>
+</div>

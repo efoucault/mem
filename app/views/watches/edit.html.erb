@@ -40,7 +40,7 @@
         <div class="about-owner">
           <h3><%= "#{current_user.first_name} #{current_user.last_name}" %></h3>
           <% if @watch.user.photo.present? %>
-              <%= cl_image_tag @watch.user.photo, width: 100, crop: :fill, class: "avatar" %>
+              <%= cl_image_tag @watch.user.photo, crop: :fill, class: "avatar" %>
             <% else %>
               <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "avatar") %>
             <%end%><span><%= current_user.description%></span>

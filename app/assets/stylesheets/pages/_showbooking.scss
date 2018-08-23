@@ -32,7 +32,7 @@
   border-radius: 50%;
   height: 100px;
   text-align: center;
-  padding-bottom: 10px;
+  // padding-bottom: 10px;
 }
 
 .booking-details-montre {
@@ -97,6 +97,7 @@
   float: left;
 }
 
+
 .tooltip{
   position:relative;
   float:right;
@@ -137,4 +138,44 @@
 
 .buttons {
   float:center;
+
+.message-customer {
+  display: flex;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgb(220, 220, 220);
+  width: 50%;
+  .message-content {
+    margin-left: 3%;
+  }
+}
+
+.message-owner {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgb(220, 220, 220);
+  width: 50%;
+  .message-content {
+  margin-right: 3%;
+  text-align: right;
+  }
+}
+
+.messagerie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.messagerie.message-owner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#new_message {
+  width: 50%;
+
 }
