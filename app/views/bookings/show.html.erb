@@ -63,7 +63,7 @@
       <% @booking.reviews.each do |review| %>
         <% if review.customer != nil %>
           <div class="review">
-            <h3><%= "Review de #{review.customer.first_name}" %></br></h3>
+            <h4><%= "Review de #{review.customer.first_name}" %></br></h4>
             <div class="review-display">
               <div class="avatar-review">
                 <%= cl_image_tag review.customer.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
@@ -82,7 +82,7 @@
         <% end %>
         <% if review.owner != nil %>
           <div class="review">
-            <h3><%= "Review de #{review.owner.first_name}" %></br></h3>
+            <h4><%= "Review de #{review.owner.first_name}" %></br></h4>
             <div class="review-display">
               <div class="avatar-review">
                 <%= cl_image_tag review.owner.photo, width: 100, crop: :fill, class: "pic-customer-booking" %>
