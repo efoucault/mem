@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 #myVideo {
   position: fixed;
-  top: 0;
+  top: 70px;
   left: 0;
   min-width: 100%;
   min-height: 100%;
@@ -26,8 +26,6 @@
 .black {
   background-color: $blue;
   opacity: 0.99;
-  height: 100%;
-  width: 100%;
 }
 
 .searchbar {
