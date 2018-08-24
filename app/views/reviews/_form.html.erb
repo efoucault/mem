@@ -1,4 +1,4 @@
-<%= simple_form_for [@booking, Review.new] do |f| %>
+<%= simple_form_for([@booking, Review.new], remote: true) do |f| %>
   <%= f.input :comment %>
   <%= f.input :rating  %>
   <%= f.submit "add a review", class: "btn btn-success" %>

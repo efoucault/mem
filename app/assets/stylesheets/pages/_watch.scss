@@ -1,11 +1,5 @@
-.col {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
 .form-booking {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .btn-resa {
@@ -55,5 +49,18 @@
 .watch-description {
   background-color: white;
   padding: 20px;
-  margin-top: 38px;
+}
+
+#price-box {
+  flex: 0 0 400px;
+  position: sticky !important;
+  height: 80vh !important;
+  padding-bottom: 24px !important;
+  padding-right: 24px !important;
+  padding-top: 24px !important;
+  top: 0px !important;
+  margin: 20px
+}
+.details {
+  display: flex;
 }

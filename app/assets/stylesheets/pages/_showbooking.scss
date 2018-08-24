@@ -11,6 +11,7 @@
   h3 {
     text-align: center;
     color: gray;
+    padding:20px
   }
 }
 
@@ -33,6 +34,15 @@
   height: 100px;
   // padding-bottom: 10px;
 }
+
+.pic-customer-booking.top {
+  border-radius: 50%;
+  height: 140px;
+  position: relative;
+  bottom: 235px;
+  // padding-bottom: 10px;
+}
+
 
 .booking-details-montre {
   text-align: left;
@@ -117,17 +127,17 @@
 
 .barWrapper{
   text-align: center;
-  width: 70%;
+  // width: 70%;
 }
 
 .status-bar{
   padding-left: 100px;
   padding-right: 100px;
-  text-align: center;
 }
 .progress{
   border-radius:0;
   overflow:visible;
+  height: 35px;
 }
 .progress-bar{
   background:$green;
@@ -135,9 +145,13 @@
   transition: width 1.5s ease-in-out;
 }
 
-.buttons {
-  float:center;
+.buttons-booking {
+  // text-align: center;
+  // float:center;
+  display: flex;
+  justify-content: space-around;
 }
+
 .message-customer {
   display: flex;
   padding-bottom: 15px;
@@ -178,3 +192,9 @@
   width: 50%;
 }
 
+.text-align-center {
+  text-align: center;
+  form {
+    display: inline-block;
+  }
+}

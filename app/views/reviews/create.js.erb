@@ -1,0 +1,14 @@
+function refreshForm(innerHTML) {
+  console.log("debug");
+  const newReviewForm = document.getElementById('new_review');
+  console.log(newReviewForm);
+  newReviewForm.innerHTML = innerHTML;
+}
+
+function addReview(reviewHTML) {
+  const reviews = document.querySelector(".review");
+  reviews.insertAdjacentHTML('beforeend', reviewHTML);
+}
+
+addReview('<%= j render "reviews/show", review: @review %>');
+refreshForm('<%= j render "reviews/form", booking: @booking, review: Review.new %>');
