@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     if @booking.status.to_i == 20
-      @tooltip_info = "attente de confirmation"
+      @tooltip_info = "attente..."
     elsif @booking.status.to_i == 45
       @tooltip_info = "location en cours"
     elsif @booking.status.to_i == 100
