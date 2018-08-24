@@ -1,4 +1,4 @@
-  <%= simple_form_for([@booking, Message.new]) do |f| %>
+  <%= simple_form_for([@booking, Message.new], remote: true) do |f| %>
     <%= f.input :message %>
     <%= f.submit "Envoyer", class: "btn btn-success" %>
   <% end %>

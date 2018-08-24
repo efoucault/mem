@@ -3,15 +3,10 @@ function refreshForm(innerHTML) {
   newMessageForm.innerHTML = innerHTML;
 }
 
-function addMessage(messageHTML) {
+function addMessage(reviewHTML) {
   const messages = document.querySelector(".messagerie");
-  messages.insertAdjacentHTML('beforeend', messageHTML);
+  messages.insertAdjacentHTML('beforeend', reviewHTML);
 }
 
-<% if @message.errors.any? %>
-  console.log("erreur");
-<% else %>
-  console.log("je suis la");
-  addMessage('<%= j render "messages/form", message: @message %>');
-<% end %>
-  console.log("en dehors du if");
+addMessage('<%= j render "messages/show", message: @message %>');
+refreshForm('<%= j render "messages/form", booking: @booking, message: Message.new %>');
