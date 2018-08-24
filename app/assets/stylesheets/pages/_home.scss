@@ -1,1 +1,51 @@
 // Specific CSS for your home-page
+#myVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -5;
+  filter: opacity(50%);
+  background-color: $blue;
+}
+
+ .home {
+  width: 100%;
+  position: relative;
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.black {
+  background-color: $blue;
+  opacity: 0.99;
+  height: 100%;
+  width: 100%;
+}
+
+.searchbar {
+  margin-top: 20%;
+
+}
+
+.search-input {
+  width: 200px !important;
+  border-radius: 2px;
+  background-color: none;
+}
+
+.title {
+  text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.searchbtn {
+  background-color: $blue;
+  border-color: $blue;
+}

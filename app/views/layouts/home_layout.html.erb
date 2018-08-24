@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Montre en Main - MeM</title>
+    <%= favicon_link_tag "logo.ico" %>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= favicon_link_tag "logo.ico" %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link href="https://fonts.googleapis.com/css?family=Arapey:400,400i|PT+Sans:400,400i,700,700i" rel="stylesheet">
+
+    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+  </head>
+  <body>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+      <%= javascript_pack_tag 'application' %>
+      <%= javascript_pack_tag "map" %>
+    </body>
+</html>
