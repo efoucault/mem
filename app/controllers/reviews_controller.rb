@@ -7,13 +7,29 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.booking = Booking.find(params[:booking_id])
+    puts "debug"
+    puts "---------------"
+    @booking = Booking.find(params[:booking_id])
+    p @booking
+    p "----------------"
     if current_user == @review.booking.customer
       @review.customer = current_user
     else
       @review.owner = @review.booking.watch.user
     end
-    @review.save!
-    redirect_to booking_path(@review.booking)
+    # @review.save!
+    # redirect_to booking_path(@review.booking)
+    if @review.save
+       respond_to do |format|
+         format.html { redirect_to booking_path(@review.booking) }
+         format.js  # <-- will render `app/views/messages/create.js.erb`
+        end
+    else
+      respond_to do |format|
+        format.html { render 'bookings/show' }
+        format.js  # <-- idem
+      end
+    end
   end
 end
 

@@ -1,0 +1,17 @@
+function refreshForm(innerHTML) {
+  const newMessageForm = document.getElementById('new_message');
+  newMessageForm.innerHTML = innerHTML;
+}
+
+function addMessage(messageHTML) {
+  const messages = document.querySelector(".messagerie");
+  messages.insertAdjacentHTML('beforeend', messageHTML);
+}
+
+<% if @message.errors.any? %>
+  console.log("erreur");
+<% else %>
+  console.log("je suis la");
+  addMessage('<%= j render "messages/form", message: @message %>');
+<% end %>
+  console.log("en dehors du if");
