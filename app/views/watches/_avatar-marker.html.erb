@@ -1,0 +1,6 @@
+<% if user.photo.present? %>
+<%= cl_image_path user.photo, width: 50, height: 50, radius: :max, crop: :fill, effect: :trim %>
+<% else %>
+<%= "https://www.limestone.edu/sites/default/files/user.png" %>
+<% end%>
+

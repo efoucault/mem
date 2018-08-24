@@ -30,6 +30,24 @@ class WatchesController < ApplicationController
 
   def show
     @watch = Watch.find(params[:id])
+    @users = User.where.not(latitude: nil, longitude: nil)
+
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        # url: link_to @users(user)
+        # label: {
+        #   text: "Watch",
+        #   color: "black",
+        #   fontWeight: "bold",
+        #   fontSize: "16px"g
+        # },
+        icon: render_to_string(partial: 'watches/avatar-marker', locals: {user:user}),
+        infoWindow: { content: render_to_string(partial: 'watches/infobox', locals: {user:user}) }
+
+      }
+    end
   end
 
   def new
