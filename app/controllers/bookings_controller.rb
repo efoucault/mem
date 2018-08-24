@@ -22,10 +22,8 @@ class BookingsController < ApplicationController
       @tooltip_info = "attente de confirmation"
     elsif @booking.status.to_i == 45
       @tooltip_info = "location en cours"
-    elsif @booking.status.to_i == 90
-      @tooltip_info = "donnez votre avis"
     elsif @booking.status.to_i == 100
-      @tooltip_info = "location clôturée"
+      @tooltip_info = "donnez votre avis"
     end
   end
 
