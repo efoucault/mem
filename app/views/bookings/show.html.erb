@@ -16,19 +16,30 @@
     <%end%>
   <%end%>
   <% if current_user == @booking.watch.user %>
-    <% if @booking.status.to_i == 20 %>
+    <% if @booking.status == "20" %>
       <%= simple_form_for(@booking) do |f| %>
-        <%= f.hidden_field :status, :value => "45"%>
-        <%= f.submit "Confirmer la location", class: "btn btn-success btn-resa" %>
+        <%= f.input :status, as: :hidden, input_html: {:value => "45"}%>
+        <%= f.submit "Confirmer la location", class: "btn btn-success" %>
       <%end%>
-    <%end%>
-    <% if @booking.status.to_i == 45 %>
+    <% elsif @booking.status == "45" %>
       <%= simple_form_for(@booking) do |f| %>
-        <%= f.hidden_field :status, :value => "90"%>
-        <%= f.submit "J'ai récupéré la montre", class: "btn btn-success btn-resa" %>
+        <%= f.input :status, as: :hidden, input_html: {:value => "90"}%>
+        <%= f.submit "J'ai récupéré la montre", class: "btn btn-success" %>
+      <%end%>
+    <% elsif @booking.status == "90" %>
+      <%= simple_form_for(@booking) do |f| %>
+        <%= f.input :status, as: :hidden, input_html: {:value => "100"}%>
+        <%= f.submit "Donnez une note à #{@booking.customer.first_name}", class: "btn btn-danger" %>
       <%end%>
     <%end%>
   <%end%>
+  <% if current_user == @booking.customer %>
+    <%= simple_form_for(@booking) do |f| %>
+      <%= f.input :status, as: :hidden, input_html: {:value => "100"}%>
+      <%= f.submit "Donnez une note à #{@booking.owner.first_name}", class: "btn btn-danger" %>
+      <%end%>
+    <%end%>
+
 
     <div class="status-bar">
       <div class="barWrapper">
