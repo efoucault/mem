@@ -1,19 +1,27 @@
 <div class="black">
-<div class="home">
-  <video autoplay muted loop id="myVideo">
-  <source src="https://www.aht.li/3273383/header.mp4" type="video/mp4">
-</video>
+  <div class="home">
+    <video autoplay muted loop id="myVideo">
+    <source src="https://www.aht.li/3273383/header.mp4" type="video/mp4">
+  </video>
 
-  <div class="banner-content">
-    <%= image_tag "montre.png", height: 50 %>
-      <div class="title">
-      <h1>Votre Montre en Main</h1>
-      <p>Location de montres de luxe de particulier à particulier</p>
+    <div class="banner-content">
+      <%= image_tag "montre.png", height: 50 %>
+        <div class="title">
+        <h1>Votre Montre en Main</h1>
+        <p>Location de montres de luxe de particulier à particulier</p>
+
+        <div class="searchzone">
+          <form action="/watches" method="get" class="form-inline searchbar">
+            <input type="text" name="query" placeholder="Recherchez une montre" class="form-control search-input round">
+            <input type="submit" class= "btn btn-success searchbtn" value="Ok">
+          </form>
+        </div>
+
+        </div>
+
+      </div>
+
     </div>
-      <form action="/watches" method="get" class="form-inline searchbar">
-        <input type="text" name="query" placeholder="Recherchez une montre" class="form-control search-input round">
-        <input type="submit" class= "btn btn-success searchbtn" value="Ok">
-      </form>
   </div>
-</div>
+
 </div>
