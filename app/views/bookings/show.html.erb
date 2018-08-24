@@ -7,33 +7,33 @@
     <div class="booking-info">
     <p>RESERVATION #<%= @booking.id%>-<%=@booking.created_at%></p>
   </div>
-  <h3>Suivi de réservation de la montre <%= @booking.watch.brand %></h3></br>
+  <h3>Suivi de réservation de la montre <%= @booking.watch.brand %></h3>
   <%= link_to user_path(@booking.customer) do %>
     <% if @booking.customer.photo.present? %>
-      <%= cl_image_tag @booking.customer.photo, crop: :fill, class: "pic-customer-booking text-center" %>
+      <%= cl_image_tag @booking.customer.photo, crop: :fill, class: "pic-customer-booking top" %>
     <% else %>
-      <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "pic-customer-booking text-center") %>
+      <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "pic-customer-booking top") %>
     <%end%>
   <%end%>
-
-  <%= render "bookings/status" %>
-
   <%= render "bookings/progressbar" %>
 
+  <div style="text-align: center;"><%= render "bookings/status" %></div>
 
+  <hr color="gray">
 
-    <div class="buttons">
-      <button class="radius-recap btn btn-primary btn-recap">Réservation</button>
-      <button class="radius-message btn enabled btn-message">Messages</button>
-      <button class="radius-review btn enabled btn-review">Review</button>
-    </div>
+      <div class="buttons-booking">
+        <div>
+          <button class="radius-recap btn btn-primary btn-recap">Réservation</button>
+          <button class="radius-message btn enabled btn-message">Messages</button>
+          <button class="radius-review btn enabled btn-review">Review</button>
+        </div>
+      </div>
+
 
   <div class="booking-details">
 
-
-
     <br/>
-    <hr color="gray">
+
     <div class="recap">
       <h4 class="text-left">Résumé de la réservation</h4>
       <div class="booking-details-montre">
@@ -151,7 +151,7 @@
       </div>
     </div>
   </div>
-
+ </div>
 </div>
 
 
