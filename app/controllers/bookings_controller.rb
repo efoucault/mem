@@ -44,5 +44,5 @@ end
 private
 
 def booking_params
-  params.require(:booking).permit(:booking_start_date, :booking_end_date, :customer_id, :owner_id, :watch_id, :total_price, :total_day)
+  params.require(:booking).permit(:booking_start_date, :booking_end_date, :customer_id, :owner_id, :watch_id, :total_price, :total_day, :status)
 end
