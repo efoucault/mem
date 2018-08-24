@@ -1,5 +1,13 @@
 .form-booking {
-  padding-bottom: 20px;
+  // padding-bottom: 20px;
+  flex: 0 0 400px;
+  position: sticky !important;
+  height: 80vh !important;
+  padding-bottom: 24px !important;
+  padding-right: 24px !important;
+  padding-top: 24px !important;
+  top: 0px !important;
+  margin: 20px
 }
 
 .btn-resa {
@@ -9,7 +17,8 @@
 .about-owner {
   min-height: 250px;
   background-color: white;
-  padding: 20px;
+  padding: 15px;
+  margin-top: 20px;
 }
 
 .btn-return {
@@ -48,7 +57,7 @@
 
 .watch-description {
   background-color: white;
-  padding: 20px;
+  padding: 10px;
 }
 
 #price-box {
