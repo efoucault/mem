@@ -14,6 +14,18 @@ class MessagesController < ApplicationController
     end
     @message.save!
     redirect_to booking_path(@message.booking)
+     # if @message.save
+     #   respond_to do |format|
+     #     format.html { redirect_to booking_path(@message.booking) }
+     #     format.js  # <-- will render `app/views/messages/create.js.erb`
+     #    end
+     #  end
+    # else
+    #   respond_to do |format|
+    #     format.html { render 'bookings/show' }
+    #     format.js  # <-- idem
+    #   end
+    # end
   end
 end
 
