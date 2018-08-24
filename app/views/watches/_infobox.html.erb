@@ -1,25 +1,38 @@
+<div style="width:250px; height:330px">
+  <div class="watch-card">
+    <div class="watch-card-image" style="background-image: url(
+      <% if user.watches.present? %>
+        <%= user.watches.last.photo %>
+      <% else %>
+        <%= image_tag('https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/3778339157483.56295f4133a3c.jpg')%>
+      <%end%>
+      )">
+    </div>
+    <div class="watch-card-content">
+      <div class="watch-card-title">
+        <div class="infos">
+          <% if user.watches.present? %>
+            <h4><strong><%= user.watches.last.brand %></strong></h4>
+            <p><%= user.watches.last.model %></p>
+          <%end%>
 
-<div class="watch-card">
-              <div class="watch-card-image" style="background-image: url(<%= user.watches.last.photo %>)"></div>
-              <div class="watch-card-content">
-                <div class="watch-card-title">
-                  <div class="infos">
-                    <h4><strong><%= user.watches.last.brand %></strong></h4>
-                    <p><%= user.watches.last.model %></p>
-                  </div>
-                </div>
-              </div>
-              <div class="watch-card-actions">
-                              <span><%= user.watches.last.price_per_day %> € par jour</span>
-                              <span>
-                                <% if user.photo.present? %>
-                                 <%=cl_image_tag user.photo, height: 40, crop: :fill, class: "card-user-infobox" %>
-                                <% else %>
-                                  <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "card-user")%>
-                                <%end%>
-                              </span>
-                            </div>
-
-                            </div>
-              <%= link_to "", watch_path(user.watches.last), class: 'card-link' %>
-            </div>
+        </div>
+      </div>
+    </div>
+    <div class="watch-card-actions">
+      <% if user.watches.present? %>
+        <span><%= user.watches.last.price_per_day %> € par jour</span>
+        <span>
+          <% if user.photo.present? %>
+           <%=cl_image_tag user.photo, height: 40, crop: :fill, class: "card-user-infobox" %>
+          <% else %>
+            <%= image_tag('https://www.limestone.edu/sites/default/files/user.png', class: "card-user")%>
+          <%end%>
+        <%end%>
+      </span>
+    </div>
+    <% if user.watches.present? %>
+      <%= link_to "", watch_path(user.watches.last), class: 'card-link' %>
+    <%end%>
+  </div>
+</div>
