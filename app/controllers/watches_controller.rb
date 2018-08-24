@@ -43,8 +43,8 @@ class WatchesController < ApplicationController
         #   fontWeight: "bold",
         #   fontSize: "16px"g
         # },
-        icon: render_to_string(partial: 'watches/avatar-marker', locals: {user:user}),
-        infoWindow: { content: render_to_string(partial: 'watches/infobox', locals: {user:user}) }
+        icon: "https://res.cloudinary.com/de06zwkul/image/upload/v1535028449/mem-markr.png",
+        infoWindow: { content: render_to_string(partial: 'watches/infobox2', locals: {user:user}) }
 
       }
     end
