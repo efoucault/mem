@@ -30,24 +30,13 @@ class WatchesController < ApplicationController
 
   def show
     @watch = Watch.find(params[:id])
-    @users = User.where.not(latitude: nil, longitude: nil)
-
-    @markers = @users.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        # url: link_to @users(user)
-        # label: {
-        #   text: "Watch",
-        #   color: "black",
-        #   fontWeight: "bold",
-        #   fontSize: "16px"g
-        # },
+    @markers =
+      [{
+        lat: @watch.user.latitude,
+        lng: @watch.user.longitude,
         icon: "https://res.cloudinary.com/de06zwkul/image/upload/v1535028449/mem-markr.png",
-        infoWindow: { content: render_to_string(partial: 'watches/infobox2', locals: {user:user}) }
 
-      }
-    end
+      }]
   end
 
   def new
